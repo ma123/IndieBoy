@@ -5,6 +5,7 @@ public class HealthNewScript : MonoBehaviour {
 	int health = 100;
 	float initSize;
 	bool isDead = false;
+	public GameObject endPanel;
 	
 	// Use this for initialization
 	void Start () {
@@ -22,11 +23,19 @@ public class HealthNewScript : MonoBehaviour {
 		
 		if(health <= 0) {
 			health = 0;
+			isDead = true;
 		}
 		
 		RefreshHealthBar ();
 
 		return health;
+	}
+
+	void OnGUI() {
+		if (isDead) {
+			Time.timeScale = 0; // pauznutie hry
+			endPanel.SetActive(true);
+		} 
 	}
 	
 	void RefreshHealthBar() {

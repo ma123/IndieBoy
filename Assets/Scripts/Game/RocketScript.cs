@@ -19,8 +19,7 @@ public class RocketScript : MonoBehaviour {
 		Instantiate(explosion, transform.position, randomRotation);
 	}*/
 	
-	void OnTriggerEnter2D (Collider2D col) 
-	{
+	void OnTriggerEnter2D (Collider2D col) {
 		// If it hits an enemy...
 		if (col.tag == "Enemy") {
 			// ... find the Enemy script and call the Hurt function.

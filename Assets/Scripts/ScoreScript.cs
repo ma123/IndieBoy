@@ -3,34 +3,34 @@ using UnityEngine.UI;
 using System.Collections;
 
 public class ScoreScript : MonoBehaviour {
-	static int score = 0;
+	static int money = 0;
 	static bool change = false;
-	Text scoreText;
+	Text moneyText;
 
 	void Start() {
-		score = 0;
-		scoreText = gameObject.GetComponent<Text>();
+		money = 0;
+		moneyText = gameObject.GetComponent<Text>();
 	}
 
 	void Update() {
 		if(change) {
 			change = false;
-			scoreText.text = "Score " + score;
+			moneyText.text = money + " €";
 		}
 	}
 
-	void OnDestroy() {
+	/*void OnDestroy() {
 		int highScore = PlayerPrefs.GetInt ("highscore", 0);
 
 		if(score > highScore) {
-			PlayerPrefs.SetInt ("highscore", score);
+			PlayerPrefs.SetInt ("savescore", score);
 		}
 
 		//PlayerPrefs.DeleteAll ();
-	}
+	}*/
 
-	public static void AddScore() {
-		score++;
+	public static void AddScore(int gains) {
+		money += gains;
 		change = true;
 	}
 }

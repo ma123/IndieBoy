@@ -13,7 +13,7 @@ public class ReactionFromPanelScript : MonoBehaviour {
 	}
 
 	public void BackMenu() {
-		print ("backMenu");
-		Application.LoadLevel ("MenuNew");
+		print ("backLevelSelector");
+		Application.LoadLevel ("LevelSelector");
 	}
 }
