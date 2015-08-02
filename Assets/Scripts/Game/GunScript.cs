@@ -63,6 +63,8 @@ public class GunScript : MonoBehaviour {
 				currentWeaponRigidBody = bazookaRigidBody;
 				break;
  			}
+
+			AmmoScript.ChangeWeapon(currentAudioGun);
 		} else {
 		    // todo dialog nemas ziadnu zbran
 		}
@@ -70,26 +72,29 @@ public class GunScript : MonoBehaviour {
 
 	public void Shoot() {   // todo firerate zbrani
 		if (haveGun) {
-			switch (currentAudioGun) {
-			case 1: 
-				AudioSource.PlayClipAtPoint(pistolClips, transform.position);
-				BulletMove ();
-				break;
-			case 2: 
-				AudioSource.PlayClipAtPoint(automachineClips, transform.position);
-				BulletMove ();
-				break;
-			case 3: 
-				AudioSource.PlayClipAtPoint(bazookaClips, transform.position);
-				BulletMove ();
-				break;
+			bool emptyStack = AmmoScript.TakeAmmo(currentAudioGun);
+			if(emptyStack) {
+				switch (currentAudioGun) {
+				case 1: 
+					AudioSource.PlayClipAtPoint(pistolClips, transform.position);
+					BulletMove ();
+					break;
+				case 2: 
+					AudioSource.PlayClipAtPoint(automachineClips, transform.position);
+					BulletMove ();
+					break;
+				case 3: 
+					AudioSource.PlayClipAtPoint(bazookaClips, transform.position);
+					BulletMove ();
+					break;
+				}
 			}
 		} else {
 		    // todo nemas ziadnu zbran
 		}
 	}
 
-	void BulletMove() {
+	private void BulletMove() {
 		if(playerCtrl.facingRight)
 		{
 			// ... instantiate the rocket facing right and set it's velocity to the right. 

@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\DestroyOnNonMobile.cs" />
+     <Compile Include="Assets\Scripts\Game\AmmoScript.cs" />
      <Compile Include="Assets\Scripts\Game\AutomachineScript.cs" />
      <Compile Include="Assets\Scripts\Game\CameraFollowScript.cs" />
      <Compile Include="Assets\Scripts\Game\CoinScript.cs" />
@@ -58,12 +59,11 @@
      <Compile Include="Assets\Scripts\Game\PlayerControllerScript.cs" />
      <Compile Include="Assets\Scripts\Game\ReactionFromPanelScript.cs" />
      <Compile Include="Assets\Scripts\Game\RocketScript.cs" />
-     <Compile Include="Assets\Scripts\HighScoreScript.cs" />
+     <Compile Include="Assets\Scripts\Game\ScoreScript.cs" />
      <Compile Include="Assets\Scripts\LevelSelector\ControlLevelSelectorScript.cs" />
      <Compile Include="Assets\Scripts\LevelSelector\LevelSelectionScript.cs" />
      <Compile Include="Assets\Scripts\MainMenuScene\PanelManagerScript.cs" />
      <Compile Include="Assets\Scripts\MainMenuScene\ReactionScript.cs" />
-     <Compile Include="Assets\Scripts\ScoreScript.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

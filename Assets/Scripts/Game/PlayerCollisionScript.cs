@@ -45,8 +45,6 @@ public class PlayerCollisionScript : MonoBehaviour {
 		if(coll.GetComponent<Collider2D>().CompareTag("Coin")) {
 			GameObject coin = coll.GetComponent<Collider2D>().gameObject;
 			coin.SendMessage ("React");
-			
-			ScoreScript.AddScore(100);
 		}
 	}
 }
