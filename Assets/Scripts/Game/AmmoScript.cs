@@ -18,24 +18,16 @@ public class AmmoScript : MonoBehaviour {
 	}
 
 	public static void AddAmmo(int currentGun) {
-		switch (currentGun) {
-		case 1: 
-			pistolAmmo++;
-			break;
-		case 2: 
-			automachineAmmo++;
-			break;
-		case 3: 
-			bazookaAmmo++;
-			break;
-		}
+			pistolAmmo += 5;
+			automachineAmmo += 5;
+			bazookaAmmo += 3;
+		ChangeWeapon (currentGun);
 	}
 
 	
 	public static bool TakeAmmo(int currentGun) {
 		if (actualAmmo > 0) {
 			actualAmmo--;
-			print(actualAmmo);
 				
 			switch (currentGun) {
 			case 1: 
@@ -57,7 +49,6 @@ public class AmmoScript : MonoBehaviour {
 	}
 
 	public static void ChangeWeapon(int currentGun) {
-		print (currentGun);
 		switch (currentGun) {
 		case 1: 
 			actualAmmo = pistolAmmo;

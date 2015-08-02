@@ -2,6 +2,7 @@
 using System.Collections;
 
 public class AutomachineScript : MonoBehaviour {
+	private int gunStrength = 2;
 
 	void Start () {
 		// Destroy the rocket after 2 seconds if it doesn't get destroyed before then.
@@ -12,8 +13,7 @@ public class AutomachineScript : MonoBehaviour {
 		// If it hits an enemy...
 		if (col.tag == "Enemy") {
 			// ... find the Enemy script and call the Hurt function.
-			col.gameObject.GetComponent<EnemyScript> ().React ();
-			
+			col.gameObject.GetComponent<EnemyScript> ().EnemyHit(gunStrength);
 			// Call the explosion instantiation.
 			//OnExplode();
 			

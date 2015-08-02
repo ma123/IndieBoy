@@ -2,6 +2,7 @@
 using System.Collections;
 
 public class PistolScript : MonoBehaviour {
+	private int gunStrength = 1;
 
 	void Start () {
 		Destroy(gameObject, 2); // znicenie naboja po 2 sekundach ak nenajde ciel
@@ -11,9 +12,8 @@ public class PistolScript : MonoBehaviour {
 		// If it hits an enemy...
 		if (col.tag == "Enemy") {
 			// ... find the Enemy script and call the Hurt function.
-
-			col.gameObject.GetComponent<EnemyScript> ().React ();
-			ScoreScript.AddScore(10);
+			print ("shoot automachine");
+			col.gameObject.GetComponent<EnemyScript> ().EnemyHit(gunStrength);
 			// Call the explosion instantiation.
 			//OnExplode();
 			

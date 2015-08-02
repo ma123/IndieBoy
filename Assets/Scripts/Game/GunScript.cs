@@ -13,7 +13,7 @@ public class GunScript : MonoBehaviour {
 	public GameObject bazookaObject;
 
 	public int currentGun = 1;
-	public int currentAudioGun = 1;
+	public static int currentAudioGun = 1;
 	public float speed = 18f;				// The speed the rocket will fire at.
 	public float fireRate = 0;
 

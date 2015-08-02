@@ -2,7 +2,6 @@
 using System.Collections;
 
 public class ReactionFromPanelScript : MonoBehaviour {
-
 	public void NextLevel() {
 		print ("nextLevel");
 	}

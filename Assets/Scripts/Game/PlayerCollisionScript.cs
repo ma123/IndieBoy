@@ -2,23 +2,20 @@
 using System.Collections;
 
 public class PlayerCollisionScript : MonoBehaviour {
-	
-	public HealthNewScript healthNewScript;
-
-	public Color fullColor;
-	public Color deadColor;
-	SpriteRenderer spriteRenderer;
+	//public Color fullColor;
+	//public Color deadColor;
+	//SpriteRenderer spriteRenderer;
+	public static bool damageLock = true;
 
 	void Start() {
-		spriteRenderer = GetComponent<SpriteRenderer> ();
+		//spriteRenderer = GetComponent<SpriteRenderer> ();
 	}
 
 	void OnCollisionEnter2D(Collision2D coll) {
 		if (coll.collider.CompareTag ("Enemy")) {
+			//damageLock = false;
 			GameObject enemy = coll.collider.gameObject;
-
-			int currentHealth = healthNewScript.Hit (20);
-			Color c = new Color ();
+			/*Color c = new Color ();
 
 				
 			float fr = Mathf.Abs (fullColor.r - deadColor.r);
@@ -34,10 +31,9 @@ public class PlayerCollisionScript : MonoBehaviour {
 			c.b = deadColor.b + (fb * currentHealth);
 
 			c.a = 1;
-			spriteRenderer.color = c;
+			spriteRenderer.color = c;*/
 
 			enemy.SendMessage ("React");
-			//ScoreScript.AddScore();
 		}
 	}
 
@@ -45,6 +41,16 @@ public class PlayerCollisionScript : MonoBehaviour {
 		if(coll.GetComponent<Collider2D>().CompareTag("Coin")) {
 			GameObject coin = coll.GetComponent<Collider2D>().gameObject;
 			coin.SendMessage ("React");
+		}
+
+		if(coll.GetComponent<Collider2D>().CompareTag("Life")) {
+			GameObject life = coll.GetComponent<Collider2D>().gameObject;
+			life.SendMessage ("React");
+		}
+
+		if(coll.GetComponent<Collider2D>().CompareTag("Munition")) {
+			GameObject munition = coll.GetComponent<Collider2D>().gameObject;
+			munition.SendMessage ("React");
 		}
 	}
 }
