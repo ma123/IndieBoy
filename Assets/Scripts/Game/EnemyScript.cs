@@ -2,7 +2,6 @@
 using System.Collections;
 
 public class EnemyScript : MonoBehaviour {
-	public GameObject parts;
 	private int enemyHP = 5;
 
 	public float walkSpeed = 1.0f;      // Walkspeed
