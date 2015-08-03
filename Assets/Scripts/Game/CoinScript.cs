@@ -2,9 +2,8 @@
 using System.Collections;
 
 public class CoinScript : MonoBehaviour {
-	public void React () {
+	public void CoinReact () {
 		print ("destroy object coin");
-		//Destroy(Instantiate (parts, transform.position, Quaternion.identity), 2); // po 2 sekundach sa znici particle system
 		ScoreScript.AddScore(100);
 		Destroy (gameObject);
 	}

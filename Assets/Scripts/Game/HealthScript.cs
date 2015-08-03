@@ -12,8 +12,8 @@ public class HealthScript : MonoBehaviour {
 	void Start () {
 		transformHealth = transform;
 		initSize = transformHealth.localScale.x;  // zisti pociatocnu velkost health baru
-		RefreshHealthBar ();
 		health = 100;
+		RefreshHealthBar ();
 	}
 	
 	public static void Hit(int damage) {

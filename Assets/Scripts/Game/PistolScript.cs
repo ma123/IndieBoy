@@ -9,23 +9,14 @@ public class PistolScript : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D (Collider2D col) {
-		// If it hits an enemy...
 		if (col.tag == "Enemy") {
-			// ... find the Enemy script and call the Hurt function.
 			print ("shoot automachine");
-			col.gameObject.GetComponent<EnemyScript> ().EnemyHit(gunStrength);
-			// Call the explosion instantiation.
-			//OnExplode();
-			
-			// Destroy the rocket.
+			col.gameObject.GetComponent<EnemyScript> ().EnemyHit (gunStrength);
 			Destroy (gameObject);
-		}
-		// Otherwise if the player manages to shoot himself...
-		else if(col.gameObject.tag != "Player")
-		{
-			// Instantiate the explosion and destroy the rocket.
-			//OnExplode();
-			Destroy (gameObject);
+		} else {
+			if (col.gameObject.tag != "Player") {
+				Destroy (gameObject);
+			}
 		}
 	}
 }

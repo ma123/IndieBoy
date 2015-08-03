@@ -51,6 +51,7 @@
      <Compile Include="Assets\Scripts\Game\CameraFollowScript.cs" />
      <Compile Include="Assets\Scripts\Game\CoinScript.cs" />
      <Compile Include="Assets\Scripts\Game\DestroyOnNonMobile.cs" />
+     <Compile Include="Assets\Scripts\Game\DestroyerScript.cs" />
      <Compile Include="Assets\Scripts\Game\EnemyScript.cs" />
      <Compile Include="Assets\Scripts\Game\GunScript.cs" />
      <Compile Include="Assets\Scripts\Game\HealthScript.cs" />
@@ -66,6 +67,7 @@
      <Compile Include="Assets\Scripts\LevelSelector\LevelSelectionScript.cs" />
      <Compile Include="Assets\Scripts\MainMenuScene\PanelManagerScript.cs" />
      <Compile Include="Assets\Scripts\MainMenuScene\ReactionScript.cs" />
+     <Compile Include="Assets\SpikeScript.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

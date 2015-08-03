@@ -3,12 +3,11 @@ using UnityEngine.UI;
 using System.Collections;
 
 public class AmmoScript : MonoBehaviour {
-	static Text ammoText;
-
-	static int pistolAmmo = 5;
-	static int automachineAmmo = 3;
-    static int bazookaAmmo = 2;
-	static int actualAmmo = 0;
+	private static Text ammoText; // zobrazenie zostavajucich nabojov 
+	private static int pistolAmmo = 5;
+	private static int automachineAmmo = 3;
+	private static int bazookaAmmo = 2;
+	private static int actualAmmo = 0;
 
 	// Use this for initialization
 	void Start () {

@@ -3,23 +3,20 @@ using System.Collections;
 
 public class GunScript : MonoBehaviour {
 	bool haveGun = true;
-	public Rigidbody2D pistolRigidBody;				// pistol bullet
-	public Rigidbody2D automachineRigidBody;				// automachine bullet
-	public Rigidbody2D bazookaRigidBody;				// bazooka bullet
+	public Rigidbody2D[] gunsRigidBody;
 
 	Rigidbody2D currentWeaponRigidBody;
-	public GameObject pistolObject;
-	public GameObject automachineObject;
-	public GameObject bazookaObject;
+	public GameObject[] gunsObject;
 
-	public int currentGun = 1;
-	public static int currentAudioGun = 1;
-	public float speed = 18f;				// The speed the rocket will fire at.
-	public float fireRate = 0;
+	public int nextChangeGun = 1;
+	public static int currentGun = 1;
+	public float speed = 18f;				// rychlost projektilu
+	private float fireRate = 0f;
+	private float lastShoot = 0f;
+	private float[] gunsFireRate = {1f, 0.4f, 2};  // nastavenie rychlosti strelby zbrani
+	public bool shooting = true; 
 
-	public AudioClip pistolClips;
-	public AudioClip automachineClips;	
-	public AudioClip bazookaClips;	
+	public AudioClip[] gunsClips;
 
 	private PlayerControllerScript playerCtrl;		// Reference to the PlayerControl script.
 	
@@ -28,43 +25,43 @@ public class GunScript : MonoBehaviour {
 	}
 
 	void Start() {
-		pistolObject.SetActive(true);
-		automachineObject.SetActive(false);
-		bazookaObject.SetActive(false);
-		currentWeaponRigidBody = pistolRigidBody;
-		currentGun = 2;
+		gunsObject[0].SetActive(true);
+		gunsObject[1].SetActive(false);
+		gunsObject[2].SetActive(false);
+		currentWeaponRigidBody = gunsRigidBody[0];
+		nextChangeGun = 2;
 	}
 
 	public void ChangeWeapon() {
 		if (haveGun) {
-			switch(currentGun) {
+			switch(nextChangeGun) {
 			case 1:
-				pistolObject.SetActive (true);
-				automachineObject.SetActive (false);
-				bazookaObject.SetActive (false);
-				currentAudioGun = 1;
-				currentGun = 2;
-				currentWeaponRigidBody = pistolRigidBody;
+				gunsObject[0].SetActive (true);
+				gunsObject[1].SetActive (false);
+				gunsObject[2].SetActive (false);
+				currentGun = nextChangeGun;
+				nextChangeGun = 2;
+				currentWeaponRigidBody = gunsRigidBody[0];
 				break;
 			case 2:
-				pistolObject.SetActive (false);
-				automachineObject.SetActive (true);
-				bazookaObject.SetActive (false);
-				currentAudioGun = 2;
-				currentGun = 3;
-				currentWeaponRigidBody = automachineRigidBody;
+				gunsObject[0].SetActive (false);
+				gunsObject[1].SetActive (true);
+				gunsObject[2].SetActive (false);
+				currentGun = nextChangeGun;
+				nextChangeGun = 3;
+				currentWeaponRigidBody = gunsRigidBody[1];
 				break;
 			case 3:
-				pistolObject.SetActive (false);
-				automachineObject.SetActive (false);
-				bazookaObject.SetActive (true);
-				currentAudioGun = 3;
-				currentGun = 1;
-				currentWeaponRigidBody = bazookaRigidBody;
+				gunsObject[0].SetActive (false);
+				gunsObject[1].SetActive (false);
+				gunsObject[2].SetActive (true);
+				currentGun = nextChangeGun;
+				nextChangeGun = 1;
+				currentWeaponRigidBody = gunsRigidBody[2];
 				break;
  			}
 
-			AmmoScript.ChangeWeapon(currentAudioGun);
+			AmmoScript.ChangeWeapon(currentGun);
 		} else {
 		    // todo dialog nemas ziadnu zbran
 		}
@@ -72,22 +69,29 @@ public class GunScript : MonoBehaviour {
 
 	public void Shoot() {   // todo firerate zbrani
 		if (haveGun) {
-			bool emptyStack = AmmoScript.TakeAmmo(currentAudioGun);
-			if(emptyStack) {
-				switch (currentAudioGun) {
-				case 1: 
-					AudioSource.PlayClipAtPoint(pistolClips, transform.position);
+
+			if (Time.time > fireRate + lastShoot) {
+				bool emptyStack = AmmoScript.TakeAmmo(currentGun);  // zistenie ci zasobnik nie je prazdny
+				if(emptyStack) {
+					switch (currentGun) {
+					case 1: 
+						fireRate = gunsFireRate[0]; // pistol
+						AudioSource.PlayClipAtPoint(gunsClips[0], transform.position);
+						break;
+					case 2:
+						fireRate = gunsFireRate[1]; // automachine
+						AudioSource.PlayClipAtPoint(gunsClips[1], transform.position);
+						break;
+					case 3: 
+						fireRate = gunsFireRate[2];   // bazooka
+						AudioSource.PlayClipAtPoint(gunsClips[2], transform.position);
+						break;
+					}
+
 					BulletMove ();
-					break;
-				case 2: 
-					AudioSource.PlayClipAtPoint(automachineClips, transform.position);
-					BulletMove ();
-					break;
-				case 3: 
-					AudioSource.PlayClipAtPoint(bazookaClips, transform.position);
-					BulletMove ();
-					break;
-				}
+
+				} 
+				lastShoot = Time.time;
 			}
 		} else {
 		    // todo nemas ziadnu zbran

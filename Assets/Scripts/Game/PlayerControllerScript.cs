@@ -4,7 +4,7 @@ using System.Collections;
 public class PlayerControllerScript : MonoBehaviour {
 	public float maxSpeed = 7f; // max rychlost ktoru moze ziskat hrac na osi x
 	public bool facingRight = true; // smer otocenia vpravo true
-	//Animator anim;
+	// private Animator anim;
 	private Rigidbody2D rigidBodyPlayer;
 
 	private bool grounded = false;
@@ -16,7 +16,7 @@ public class PlayerControllerScript : MonoBehaviour {
 	private bool doubleJump = false;
 	private float hInput = 0;
 
-	public AudioClip[] jumpClips;			// pole audioclip pri skoku
+	public AudioClip jumpClip;			// pole audioclip pri skoku
 
 	void Start () {
 		Time.timeScale = 1; // po spustenie skriptu timeScale na 1 abz pokracovala hra aj po restarte
@@ -50,13 +50,12 @@ public class PlayerControllerScript : MonoBehaviour {
 	}
 
 
-	// jednoskok dvojskok
+	/* Jednoskok dvojskok */
 	public void Jump () {
 		if (grounded || !doubleJump) { // ak je na zemi alebo nie je doublejump
 			//anim.SetBool ("Ground", false);
-			// Play a random jump audio clip.
-			int i = Random.Range(0, jumpClips.Length);
-			AudioSource.PlayClipAtPoint(jumpClips[i], transform.position);
+
+			AudioSource.PlayClipAtPoint(jumpClip, transform.position); // prehranie jump zvuku
 
 			rigidBodyPlayer.AddForce (new Vector2 (0, jumpForce));   // prida v rigidbody Vektor2 y osi silu jumpForce
 		
@@ -83,7 +82,7 @@ public class PlayerControllerScript : MonoBehaviour {
 	}
 
 	// otocenie hraca
-	void Flip() {
+	private void Flip() {
 		facingRight = !facingRight;
 		Vector3 theScale = transform.localScale;
 		theScale.x *= -1;

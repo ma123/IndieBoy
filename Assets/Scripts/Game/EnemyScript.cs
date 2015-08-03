@@ -4,7 +4,6 @@ using System.Collections;
 public class EnemyScript : MonoBehaviour {
 	public GameObject parts;
 	private int enemyHP = 5;
-	private float waitTime = 2;
 
 	public float walkSpeed = 1.0f;      // Walkspeed
 	public float wallLeft = 0.0f;       // Define wallLeft
@@ -29,26 +28,15 @@ public class EnemyScript : MonoBehaviour {
 		transform.Translate(walkAmount);
 	}
 
-    public void React () {
-		HealthScript.Hit (50);
-		Destroy (gameObject);
-		//StartCoroutine(Example());
-
-		//PlayerCollisionScript.damageLock = true;
+    public void EnemyReact () {
+		HealthScript.Hit (20);
 	}
 
-	/*IEnumerator Example() {
-		yield return new WaitForSeconds(waitTime);
-	} */
-
 	public void EnemyHit (int gunStrength) {
-		print (enemyHP);
 		enemyHP -= gunStrength;
 		if(enemyHP <= 0) {
 			Destroy (gameObject);
 			ScoreScript.AddScore(10);
 		}
-
-		//Destroy (gameObject, 1); // druhy parameter urcuje cas vykonania
 	}
 }
