@@ -5,7 +5,7 @@ public class HealthScript : MonoBehaviour {
 	private static int health = 100;
 	private static float initSize;
 	private static bool isDead = false;
-	public GameObject endPanel;
+	public GameObject deadPanel;
 	private static Transform transformHealth;
 	
 	// Use this for initialization
@@ -45,7 +45,7 @@ public class HealthScript : MonoBehaviour {
 	void OnGUI() {
 		if (isDead) {
 			Time.timeScale = 0; // pauznutie hry
-			endPanel.SetActive(true);
+			deadPanel.SetActive(true);
 			isDead = false;
 		} 
 	}

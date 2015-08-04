@@ -13,7 +13,7 @@ public class GunScript : MonoBehaviour {
 	public float speed = 18f;				// rychlost projektilu
 	private float fireRate = 0f;
 	private float lastShoot = 0f;
-	private float[] gunsFireRate = {1f, 0.4f, 2};  // nastavenie rychlosti strelby zbrani
+	private float[] gunsFireRate = {0.4f, 0.2f, 0.9f};  // nastavenie rychlosti strelby zbrani
 	public bool shooting = true; 
 
 	public AudioClip[] gunsClips;

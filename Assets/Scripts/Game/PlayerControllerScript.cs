@@ -5,7 +5,7 @@ public class PlayerControllerScript : MonoBehaviour {
 	public float maxSpeed = 7f; // max rychlost ktoru moze ziskat hrac na osi x
 	public bool facingRight = true; // smer otocenia vpravo true
 	// private Animator anim;
-	private Rigidbody2D rigidBodyPlayer;
+	public Rigidbody2D rigidBodyPlayer;
 
 	private bool grounded = false;
 	public Transform groundCheck;

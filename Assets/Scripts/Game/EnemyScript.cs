@@ -2,14 +2,15 @@
 using System.Collections;
 
 public class EnemyScript : MonoBehaviour {
-	private int enemyHP = 5;
+	public int enemyHP = 5;
+	public int attackStrength = 20;
 
 	public float walkSpeed = 1.0f;      // Walkspeed
 	public float wallLeft = 0.0f;       // Define wallLeft
 	public float wallRight = 5.0f;      // Define wallRight
-	float walkingDirection = 1.0f;
-	Vector2 walkAmount;
-	float originalX; // Original float value
+	private float walkingDirection = 1.0f;
+	private Vector2 walkAmount;
+	private float originalX; // Original float value
 	
 	
 	void Start () {
@@ -28,7 +29,7 @@ public class EnemyScript : MonoBehaviour {
 	}
 
     public void EnemyReact () {
-		HealthScript.Hit (20);
+		HealthScript.Hit (attackStrength);
 	}
 
 	public void EnemyHit (int gunStrength) {

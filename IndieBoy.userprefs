@@ -1,6 +1,12 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Game\EndLevelScript.cs">
+    <Files>
+      <File FileName="Assets\Scripts\Game\PlayerCollisionScript.cs" Line="55" Column="35" />
+      <File FileName="Assets\Scripts\Game\EndLevelScript.cs" Line="17" Column="18" />
+      <File FileName="Assets\Scripts\Game\HealthScript.cs" Line="28" Column="18" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

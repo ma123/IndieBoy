@@ -22,6 +22,11 @@ public class PlayerCollisionScript : MonoBehaviour {
 				lastTime = Time.time;
 			}
 		}
+
+		if (coll.collider.CompareTag ("Trampoline")) {
+			GameObject trampoline = coll.collider.gameObject;
+		     trampoline.SendMessage ("TrampolineReact");
+		}
 	}
 
 	void OnTriggerEnter2D(Collider2D coll) {
@@ -43,6 +48,11 @@ public class PlayerCollisionScript : MonoBehaviour {
 		if(coll.GetComponent<Collider2D>().CompareTag("Spike")) {
 			GameObject munition = coll.GetComponent<Collider2D>().gameObject;
 			munition.SendMessage ("SpikeReact");
+		}
+
+		if(coll.GetComponent<Collider2D>().CompareTag("EndLevel")) {
+			GameObject endLevel = coll.GetComponent<Collider2D>().gameObject;
+			endLevel.SendMessage ("EndLevelReact");
 		}
 	}
 }
