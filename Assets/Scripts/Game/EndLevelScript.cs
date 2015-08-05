@@ -3,10 +3,24 @@ using System.Collections;
 
 public class EndLevelScript : MonoBehaviour {
 	private bool isWin = false;
+	private int openedLevel = 0;
+	private int currentLevel = 0;
 	public GameObject endLevelPanel;
 
 	public void EndLevelReact () {
 		print ("end level");
+		print (ScoreScript.GetMoney());
+		PlayerPrefs.SetInt ("money", ScoreScript.GetMoney());
+
+		openedLevel = PlayerPrefs.GetInt ("openedLevel", 1);
+		currentLevel = PlayerPrefs.GetInt ("currentLevel");
+
+		if(currentLevel == openedLevel) {
+			openedLevel++;
+			PlayerPrefs.SetInt("openedLevel", openedLevel);
+			openedLevel = PlayerPrefs.GetInt ("openedLevel");
+		}
+		
 		isWin = true;
 	}
 

@@ -4,13 +4,23 @@ using System.Collections;
 
 public class LevelSelectionScript : MonoBehaviour {
 	private int openedLevel = 1;	
-	public GameObject gameObject;
+	private int numberOfLevels = 6;
+	private GameObject gameObject;
 
 	void Start() {
-		gameObject.GetComponent<Button>().interactable = false;
+		openedLevel = PlayerPrefs.GetInt ("openedLevel", 1);
+		print (openedLevel);
+
+		// vypnutie interakcie levelov ktore nie su pristupne
+		for(int i = openedLevel+1; i <= numberOfLevels; i++) {
+			gameObject = GameObject.Find("Lvl"+i+"Btn");
+			gameObject.GetComponent<Button>().interactable = false;
+		}
+		//PlayerPrefs.DeleteAll ();
 	}
 
-	public void OnClickedLevel(int numberOfLevel) {
-		Application.LoadLevel ("Level" + numberOfLevel);
+	public void OnClickedLevel(int currentLevel) {
+		PlayerPrefs.SetInt("currentLevel", currentLevel);
+		Application.LoadLevel ("Level" + currentLevel);
 	}
 }
