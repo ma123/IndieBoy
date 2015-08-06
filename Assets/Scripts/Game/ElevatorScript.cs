@@ -10,6 +10,8 @@ public class ElevatorScript : MonoBehaviour {
 	private Vector2 elevatorAmount;
 	private float originalX;
 	private float originalY; 
+	private bool collisionWithPlayer = false;
+	private GameObject playerObject;
 	
 	void Start () {
 		if (horizontalMove) {
@@ -37,6 +39,23 @@ public class ElevatorScript : MonoBehaviour {
 				elevatorDirection = 1.0f;
 			}
 			transform.Translate (elevatorAmount);
+		}
+
+		if(collisionWithPlayer) {
+			playerObject.transform.Translate(elevatorAmount);
+		}
+	}
+
+	void OnCollisionEnter2D(Collision2D coll) {
+		if (coll.collider.CompareTag ("Player")) {
+			playerObject = coll.collider.gameObject;
+			collisionWithPlayer = true;
+		}
+	}
+
+	void OnCollisionExit2D(Collision2D coll) {
+		if (coll.collider.CompareTag ("Player")) {
+			collisionWithPlayer = false;
 		}
 	}
 }

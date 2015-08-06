@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class GunScript : MonoBehaviour {
-	bool haveGun = true;
+	public bool haveGun = true;
 	public Rigidbody2D[] gunsRigidBody;
 
 	Rigidbody2D currentWeaponRigidBody;
@@ -63,7 +63,7 @@ public class GunScript : MonoBehaviour {
 
 			AmmoScript.ChangeWeapon(currentGun);
 		} else {
-		    // todo dialog nemas ziadnu zbran
+			print ("Nemam zbran ale mozem ich umlatit svojim malym egom");
 		}
 	}
 
@@ -94,7 +94,7 @@ public class GunScript : MonoBehaviour {
 				lastShoot = Time.time;
 			}
 		} else {
-		    // todo nemas ziadnu zbran
+			print ("Nemam zbran ale mozem ich umlatit svojim malym egom");
 		}
 	}
 

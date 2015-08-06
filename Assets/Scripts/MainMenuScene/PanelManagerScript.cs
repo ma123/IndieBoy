@@ -9,6 +9,12 @@ public class PanelManagerScript : MonoBehaviour {
 		currentPanelIndex = 0;
 	}
 
+	void Update() {
+		if (Input.GetKeyDown (KeyCode.Escape)) { 
+			ChangePanel(1);
+		}
+	}
+
 	public void ChangePanel(int panelIndex) {
 		panels [currentPanelIndex].SetActive (false);
 		currentPanelIndex = panelIndex;

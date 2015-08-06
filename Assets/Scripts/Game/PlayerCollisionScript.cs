@@ -16,6 +16,7 @@ public class PlayerCollisionScript : MonoBehaviour {
 				if(damageLock) {
 					damageLock = false;
 					AudioSource.PlayClipAtPoint(ouchClips, transform.position);
+				    this.GetComponent<Rigidbody2D>().AddForce (new Vector2 (0, 400));   // prida v rigidbody Vektor2 y osi silu jumpForce
 					enemy.SendMessage ("EnemyReact");
 					damageLock = true;  
 				}
@@ -26,6 +27,22 @@ public class PlayerCollisionScript : MonoBehaviour {
 		if (coll.collider.CompareTag ("Trampoline")) {
 			GameObject trampoline = coll.collider.gameObject;
 		     trampoline.SendMessage ("TrampolineReact");
+		}
+	}
+
+	void OnCollisionStay2D(Collision2D coll) {
+		if (coll.collider.CompareTag ("Enemy")) {
+			GameObject enemy = coll.collider.gameObject;
+			
+			if (Time.time > waitTime + lastTime) {
+				if(damageLock) {
+					damageLock = false;
+					AudioSource.PlayClipAtPoint(ouchClips, transform.position);
+					enemy.SendMessage ("EnemyReact");
+					damageLock = true;  
+				}
+				lastTime = Time.time;
+			}
 		}
 	}
 

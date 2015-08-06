@@ -11,7 +11,7 @@ public class PlayerControllerScript : MonoBehaviour {
 	public Transform groundCheck;
 	private float groundRadius = 0.2f;
 	public LayerMask whatIsGround; 
-	public float jumpForce = 400f; 
+	public float jumpForce = 400f;
 
 	private bool doubleJump = false;
 	private float hInput = 0;
@@ -64,8 +64,7 @@ public class PlayerControllerScript : MonoBehaviour {
 			}
 		}
 	}
-
-
+	
 	// pohyb po osi x
 	public void Move(float moveSpeed) {
 		//anim.SetFloat ("Speed", Mathf.Abs (moveSpeed));

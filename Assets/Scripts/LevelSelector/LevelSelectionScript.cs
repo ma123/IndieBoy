@@ -9,7 +9,6 @@ public class LevelSelectionScript : MonoBehaviour {
 
 	void Start() {
 		openedLevel = PlayerPrefs.GetInt ("openedLevel", 1);
-		print (openedLevel);
 
 		// vypnutie interakcie levelov ktore nie su pristupne
 		for(int i = openedLevel+1; i <= numberOfLevels; i++) {
@@ -22,5 +21,9 @@ public class LevelSelectionScript : MonoBehaviour {
 	public void OnClickedLevel(int currentLevel) {
 		PlayerPrefs.SetInt("currentLevel", currentLevel);
 		Application.LoadLevel ("Level" + currentLevel);
+	}
+
+	public void OnClickShop() {
+		Application.LoadLevel ("Shop");
 	}
 }

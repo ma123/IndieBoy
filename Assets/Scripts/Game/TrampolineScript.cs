@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class TrampolineScript : MonoBehaviour {
-	public Rigidbody2D rigidBodyPlayer;
+	private Rigidbody2D rigidBodyPlayer;
 	public float trampolineStrength = 600f;
 
 	void Start() {
