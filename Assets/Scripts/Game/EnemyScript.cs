@@ -11,7 +11,10 @@ public class EnemyScript : MonoBehaviour {
 	private float walkingDirection = 1.0f;
 	private Vector2 walkAmount;
 	private float originalX; // Original float value
-	
+
+	public bool shooting = true;
+	public Rigidbody2D enemyWeaponRigidBody;
+	private float bulletSpeed = 19.0f;
 	
 	void Start () {
 		this.originalX = this.transform.position.x;
@@ -37,6 +40,22 @@ public class EnemyScript : MonoBehaviour {
 		if(enemyHP <= 0) {
 			Destroy (gameObject);
 			ScoreScript.AddScore(10);
+		}
+		BulletMove (); // dokoncit strelbu nepriatela
+	}
+
+	private void BulletMove() {
+		if(walkingDirection > 0.0f)
+		{
+			// ... instantiate the rocket facing right and set it's velocity to the right. 
+			Rigidbody2D bulletInstance = Instantiate(enemyWeaponRigidBody, transform.position, Quaternion.Euler(new Vector3(0,0,0))) as Rigidbody2D;
+			bulletInstance.velocity = new Vector2(bulletSpeed, 0);
+		}
+		else
+		{
+			// Otherwise instantiate the rocket facing left and set it's velocity to the left.
+			Rigidbody2D bulletInstance = Instantiate(enemyWeaponRigidBody, transform.position, Quaternion.Euler(new Vector3(0,0,180f))) as Rigidbody2D;
+			bulletInstance.velocity = new Vector2(bulletSpeed, 0);
 		}
 	}
 }
