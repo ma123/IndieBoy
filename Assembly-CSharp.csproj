@@ -54,6 +54,7 @@
      <Compile Include="Assets\Scripts\Game\DestroyerScript.cs" />
      <Compile Include="Assets\Scripts\Game\ElevatorScript.cs" />
      <Compile Include="Assets\Scripts\Game\EndLevelScript.cs" />
+     <Compile Include="Assets\Scripts\Game\EnemyBuletScript.cs" />
      <Compile Include="Assets\Scripts\Game\EnemyScript.cs" />
      <Compile Include="Assets\Scripts\Game\GunScript.cs" />
      <Compile Include="Assets\Scripts\Game\HealthScript.cs" />

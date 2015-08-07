@@ -69,7 +69,6 @@ public class GunScript : MonoBehaviour {
 
 	public void Shoot() {   // todo firerate zbrani
 		if (haveGun) {
-
 			if (Time.time > fireRate + lastShoot) {
 				bool emptyStack = AmmoScript.TakeAmmo(currentGun);  // zistenie ci zasobnik nie je prazdny
 				if(emptyStack) {
