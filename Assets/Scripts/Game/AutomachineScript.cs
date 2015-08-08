@@ -13,8 +13,13 @@ public class AutomachineScript : MonoBehaviour {
 			col.gameObject.GetComponent<EnemyScript> ().EnemyHit (gunStrength);
 			Destroy (gameObject);
 		} else {
-			if (col.gameObject.tag != "Player") {
+			if (col.tag == "Boss") {
+				col.gameObject.GetComponent<BossScript> ().EnemyHit (gunStrength);
 				Destroy (gameObject);
+			} else {
+				if (col.gameObject.tag != "Player") {
+					Destroy (gameObject);
+				}
 			}
 		}
 	}

@@ -10,12 +10,16 @@ public class PistolScript : MonoBehaviour {
 
 	void OnTriggerEnter2D (Collider2D col) {
 		if (col.tag == "Enemy") {
-			print ("shoot pistol");
 			col.gameObject.GetComponent<EnemyScript> ().EnemyHit (gunStrength);
 			Destroy (gameObject);
 		} else {
-			if (col.gameObject.tag != "Player") {
+			if (col.tag == "Boss") {
+				col.gameObject.GetComponent<BossScript> ().EnemyHit (gunStrength);
 				Destroy (gameObject);
+			} else {
+				if (col.gameObject.tag != "Player") {
+					Destroy (gameObject);
+				}
 			}
 		}
 	}

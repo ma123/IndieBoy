@@ -14,7 +14,8 @@ public class EnemyBuletScript : MonoBehaviour {
 			HealthScript.Hit (gunStrength);
 			Destroy (gameObject);
 		} else {
-			if (col.gameObject.tag != "Enemy") {
+			if (col.tag != "Enemy" && col.tag != "Boss" && col.tag != "Life" && col.tag != "Munition" && col.tag != "EndLevel" && col.tag != "Coin" && col.tag != "Spike" ) {
+				print (col.tag);
 				Destroy (gameObject);
 			}
 		}

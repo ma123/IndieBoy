@@ -20,16 +20,17 @@ public class RocketScript : MonoBehaviour {
 	}
 	
 	void OnTriggerEnter2D (Collider2D col) {
-		// If it hits an enemy...
 		if (col.tag == "Enemy") {
 			col.gameObject.GetComponent<EnemyScript> ().EnemyHit (gunStrength);
-			OnExplode ();
-
 			Destroy (gameObject);
 		} else {
-			if (col.gameObject.tag != "Player") {
-				OnExplode ();
+			if (col.tag == "Boss") {
+				col.gameObject.GetComponent<BossScript> ().EnemyHit (gunStrength);
 				Destroy (gameObject);
+			} else {
+				if (col.gameObject.tag != "Player") {
+					Destroy (gameObject);
+				}
 			}
 		}
 	}

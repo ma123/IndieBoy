@@ -48,6 +48,8 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\Game\AmmoScript.cs" />
      <Compile Include="Assets\Scripts\Game\AutomachineScript.cs" />
+     <Compile Include="Assets\Scripts\Game\BossGunScript.cs" />
+     <Compile Include="Assets\Scripts\Game\BossScript.cs" />
      <Compile Include="Assets\Scripts\Game\CameraFollowScript.cs" />
      <Compile Include="Assets\Scripts\Game\CoinScript.cs" />
      <Compile Include="Assets\Scripts\Game\DestroyOnNonMobile.cs" />
@@ -55,6 +57,7 @@
      <Compile Include="Assets\Scripts\Game\ElevatorScript.cs" />
      <Compile Include="Assets\Scripts\Game\EndLevelScript.cs" />
      <Compile Include="Assets\Scripts\Game\EnemyBuletScript.cs" />
+     <Compile Include="Assets\Scripts\Game\EnemyGunScript.cs" />
      <Compile Include="Assets\Scripts\Game\EnemyScript.cs" />
      <Compile Include="Assets\Scripts\Game\GunScript.cs" />
      <Compile Include="Assets\Scripts\Game\HealthScript.cs" />

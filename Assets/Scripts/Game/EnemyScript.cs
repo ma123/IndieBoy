@@ -12,12 +12,6 @@ public class EnemyScript : MonoBehaviour {
 	private Vector2 walkAmount;
 	private float originalX; // Original float value
 
-	public bool shooting = true;
-	public Rigidbody2D enemyWeaponRigidBody;
-	public float bulletSpeed = 19.0f;
-	public float fireRate = 2.0f;
-	private float lastShoot = 0f;
-	
 	void Start () {
 		this.originalX = this.transform.position.x;
 	}
@@ -31,13 +25,6 @@ public class EnemyScript : MonoBehaviour {
 			walkingDirection = 1.0f;
 		}
 		transform.Translate(walkAmount);
-
-		if(shooting) {
-			if (Time.time > fireRate + lastShoot) {
-				BulletMove();
-				lastShoot = Time.time;
-			}
-		}
 	}
 
     public void EnemyReact () {
@@ -52,14 +39,7 @@ public class EnemyScript : MonoBehaviour {
 		}
 	}
 
-	private void BulletMove() {
-		if(walkingDirection > 0.0f) {
-			Rigidbody2D bulletInstance = Instantiate(enemyWeaponRigidBody, transform.position, Quaternion.Euler(new Vector3(0,0,0))) as Rigidbody2D;
-			bulletInstance.velocity = new Vector2(bulletSpeed, 0);
-		}
-		else {
-			Rigidbody2D bulletInstance = Instantiate(enemyWeaponRigidBody, transform.position, Quaternion.Euler(new Vector3(0,0,180f))) as Rigidbody2D;
-			bulletInstance.velocity = new Vector2(-bulletSpeed, 0);
-		}
+	public float GetWalkingDirection() {
+		return walkingDirection;
 	}
 }
