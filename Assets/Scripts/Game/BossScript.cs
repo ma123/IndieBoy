@@ -22,8 +22,10 @@ public class BossScript : MonoBehaviour {
 		walkAmount.x = walkingDirection * walkSpeed * Time.deltaTime;
 		if (walkingDirection > 0.0f && transform.position.x >= originalX + wallRight) {
 			walkingDirection = -1.0f;
+			Flip();
 		} else if (walkingDirection < 0.0f && transform.position.x <= originalX - wallLeft) {
 			walkingDirection = 1.0f;
+			Flip ();
 		}
 		transform.Translate(walkAmount);
 	}
@@ -38,6 +40,12 @@ public class BossScript : MonoBehaviour {
 			Destroy (gameObject);
 			ScoreScript.AddScore(1000);
 		}
+	}
+	
+	private void Flip() {
+		Vector3 theScale = transform.localScale;
+		theScale.x *= -1;
+		transform.localScale = theScale;
 	}
 
 	public float GetWalkingDirection() {
