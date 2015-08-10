@@ -2,6 +2,10 @@
 using System.Collections;
 
 public class PlayerControllerScript : MonoBehaviour {
+	#if !UNITY_ANDROID && !UNITY_IOS && !UNITY_BLACKBERRY && !UNITY_WINRT_8_0 && !UNITY_WINRT_8_1
+	private GunScript gunScript;
+	#endif
+
 	public float maxSpeed = 7f; // max rychlost ktoru moze ziskat hrac na osi x
 	public bool facingRight = true; // smer otocenia vpravo true
 	// private Animator anim;
@@ -22,6 +26,9 @@ public class PlayerControllerScript : MonoBehaviour {
 		Time.timeScale = 1; // po spustenie skriptu timeScale na 1 abz pokracovala hra aj po restarte
 		rigidBodyPlayer = GetComponent<Rigidbody2D> ();
 		//anim = GetComponent<Animator>();
+		#if !UNITY_ANDROID && !UNITY_IOS && !UNITY_BLACKBERRY && !UNITY_WINRT_8_0 && !UNITY_WINRT_8_1
+			gunScript = GetComponentInChildren<GunScript>();
+        #endif
 	}
 
 	void FixedUpdate () {
@@ -39,11 +46,16 @@ public class PlayerControllerScript : MonoBehaviour {
 		}*/
 	
 		#if !UNITY_ANDROID && !UNITY_IOS && !UNITY_BLACKBERRY && !UNITY_WINRT_8_0 && !UNITY_WINRT_8_1
-		  Move(Input.GetAxis ("Horizontal"));
-
-		  if(Input.GetKeyDown(KeyCode.Space)) {
-		  	  Jump();
-		  }
+			Move(Input.GetAxis ("Horizontal"));
+			if(Input.GetKeyDown(KeyCode.Space)) {
+			  	  Jump();
+			}
+			if(Input.GetKeyDown(KeyCode.RightControl)) {
+				gunScript.Shoot();
+			}
+			if(Input.GetKeyDown(KeyCode.RightAlt)) {
+				gunScript.ChangeWeapon();
+			}
         #else
 		  Move (hInput);
         #endif

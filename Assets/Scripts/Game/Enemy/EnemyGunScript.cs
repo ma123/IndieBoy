@@ -12,7 +12,6 @@ public class EnemyGunScript : MonoBehaviour {
 	
 	void Start() {
 		enemyScript = GetComponentInParent<EnemyScript> ();
-		
 	}
 	
 	// Update is called once per frame

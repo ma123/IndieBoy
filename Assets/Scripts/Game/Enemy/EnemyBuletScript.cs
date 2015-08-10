@@ -10,12 +10,11 @@ public class EnemyBuletScript : MonoBehaviour {
 	
 	void OnTriggerEnter2D (Collider2D col) {
 		if (col.tag == "Player") {
-			print ("shoot enemy");
+			print ("shoot player");
 			HealthScript.Hit (gunStrength);
 			Destroy (gameObject);
 		} else {
 			if (col.tag != "Enemy" && col.tag != "Boss" && col.tag != "Life" && col.tag != "Munition" && col.tag != "EndLevel" && col.tag != "Coin" && col.tag != "Spike" ) {
-				print (col.tag);
 				Destroy (gameObject);
 			}
 		}

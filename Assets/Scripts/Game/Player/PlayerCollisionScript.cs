@@ -16,7 +16,8 @@ public class PlayerCollisionScript : MonoBehaviour {
 				if(damageLock) {
 					damageLock = false;
 					AudioSource.PlayClipAtPoint(ouchClips, transform.position);
-				    this.GetComponent<Rigidbody2D>().AddForce (new Vector2 (0, 400));   // prida v rigidbody Vektor2 y osi silu jumpForce
+				    this.GetComponent<Rigidbody2D>().AddForce (new Vector2 (0, 500));   // prida v rigidbody Vektor2 y osi silu jumpForce
+
 					enemy.SendMessage ("EnemyReact");
 					damageLock = true;  
 				}

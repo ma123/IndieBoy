@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class RocketScript : MonoBehaviour {
+public class RocketBulletScript : MonoBehaviour {
 	private int gunStrength = 3;
 	public GameObject explosion;		// prefab na explozia efekt
 

@@ -1,11 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PistolScript : MonoBehaviour {
-	private int gunStrength = 1;
+public class AutomachineBulletScript : MonoBehaviour {
+	private int gunStrength = 2;
 
 	void Start () {
-		Destroy(gameObject, 2); // znicenie naboja po 2 sekundach ak nenajde ciel
+		Destroy(gameObject, 2);
 	}
 
 	void OnTriggerEnter2D (Collider2D col) {

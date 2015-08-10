@@ -29,13 +29,13 @@ public class AmmoScript : MonoBehaviour {
 			actualAmmo--;
 				
 			switch (currentGun) {
-			case 1: 
+			case 0: 
 				pistolAmmo = actualAmmo;
 				break;
-			case 2: 
+			case 1: 
 				automachineAmmo = actualAmmo;
 				break;
-			case 3: 
+			case 2: 
 				bazookaAmmo = actualAmmo;
 				break;
 			}
@@ -49,13 +49,13 @@ public class AmmoScript : MonoBehaviour {
 
 	public static void ChangeWeapon(int currentGun) {
 		switch (currentGun) {
-		case 1: 
+		case 0: 
 			actualAmmo = pistolAmmo;
 			break;
-		case 2: 
+		case 1: 
 			actualAmmo = automachineAmmo;
 			break;
-		case 3: 
+		case 2: 
 			actualAmmo = bazookaAmmo;
 			break;
 		}
