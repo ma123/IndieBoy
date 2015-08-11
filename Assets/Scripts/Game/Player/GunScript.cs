@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -13,7 +14,6 @@ public class GunScript : MonoBehaviour {
 	private float fireRate = 0f;
 	private float lastShoot = 0f;
 	private int numberOfWeapons = 3;  // pocet vsetkych zbrani 
-	private bool[] haveGunArray = {true, true, true};
 	private float[] gunsFireRate = {0.4f, 0.2f, 0.9f};  // nastavenie rychlosti strelby zbrani
 	private List<int> weaponsList = new List<int>();
 
@@ -27,7 +27,7 @@ public class GunScript : MonoBehaviour {
 
 	void Start() {
 		for(int i = 0; i < numberOfWeapons; i++) { // prebehne pole ak su zbrane true ulozia sa do listu
-			if(haveGunArray[i]) {
+			if(PlayerPrefs.GetInt("weapon" + i, 1) == 1) {
 				weaponsList.Add(i);
 			}
 		} 
