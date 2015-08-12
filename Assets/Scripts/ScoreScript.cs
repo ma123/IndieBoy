@@ -21,6 +21,11 @@ public class ScoreScript : MonoBehaviour {
 		RefreshScoreText ();
 	}
 
+	public static void RemoveScore(int lost) {
+		money -= lost;
+		RefreshScoreText ();
+	}
+
 	public static int GetMoney() {
 		return money;
 	}

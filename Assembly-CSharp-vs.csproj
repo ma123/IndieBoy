@@ -68,7 +68,6 @@
      <Compile Include="Assets\Scripts\Game\Player\PlayerCollisionScript.cs" />
      <Compile Include="Assets\Scripts\Game\Player\PlayerControllerScript.cs" />
      <Compile Include="Assets\Scripts\Game\Player\RocketBulletScript.cs" />
-     <Compile Include="Assets\Scripts\Game\Player\ScoreScript.cs" />
      <Compile Include="Assets\Scripts\Game\ReactionFromPanelScript.cs" />
      <Compile Include="Assets\Scripts\Game\SpikeScript.cs" />
      <Compile Include="Assets\Scripts\Game\TrampolineScript.cs" />
@@ -76,6 +75,7 @@
      <Compile Include="Assets\Scripts\LevelSelector\LevelSelectionScript.cs" />
      <Compile Include="Assets\Scripts\MainMenuScene\PanelManagerScript.cs" />
      <Compile Include="Assets\Scripts\MainMenuScene\ReactionScript.cs" />
+     <Compile Include="Assets\Scripts\ScoreScript.cs" />
      <Compile Include="Assets\Scripts\ScreenAdjustScript.cs" />
      <Compile Include="Assets\Scripts\Shop\ShopScript.cs" />
  <Reference Include="UnityEngine.UI">

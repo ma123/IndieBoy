@@ -4,13 +4,17 @@ using System.Collections;
 
 public class AmmoScript : MonoBehaviour {
 	private static Text ammoText; // zobrazenie zostavajucich nabojov 
-	private static int pistolAmmo = 5;
-	private static int automachineAmmo = 3;
-	private static int bazookaAmmo = 2;
+	private static int pistolAmmo = 0;
+	private static int automachineAmmo = 0;
+	private static int bazookaAmmo = 0;
 	private static int actualAmmo = 0;
 
 	// Use this for initialization
 	void Start () {
+		pistolAmmo = PlayerPrefs.GetInt ("pistolammo", 5);
+		automachineAmmo = PlayerPrefs.GetInt ("automachineammo", 0);
+		bazookaAmmo = PlayerPrefs.GetInt ("bazookaammo", 0);
+
 		ammoText = gameObject.GetComponent<Text>();
 		actualAmmo = pistolAmmo; // nastavenie ako default pistol
 		ammoText.text = actualAmmo + "Left";
@@ -60,5 +64,17 @@ public class AmmoScript : MonoBehaviour {
 			break;
 		}
 		ammoText.text = actualAmmo + "Left"; 
+	}
+
+	public static int GetPistolAmmo() {
+		return pistolAmmo;
+	}
+
+	public static int GetAutomachineAmmo() {
+		return automachineAmmo;
+	}
+
+	public static int GetBazookaAmmo() {
+		return bazookaAmmo;
 	}
 }
