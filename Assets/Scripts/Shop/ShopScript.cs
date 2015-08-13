@@ -38,11 +38,10 @@ public class ShopScript : MonoBehaviour {
 	} 
 
 	public void SellWeapon(int typeOfWeapon) {
-		if (PlayerPrefs.GetInt("weapon" + typeOfWeapon, 1) == 1) {   // zisti ci vlastnis zbran
+		if (PlayerPrefs.GetInt("weapon" + typeOfWeapon, 0) == 1) {   // zisti ci vlastnis zbran
 			ScoreScript.AddScore (priceWeapon[typeOfWeapon]); // pridanie penazi za zbran
 			PlayerPrefs.SetInt ("money", ScoreScript.GetMoney ()); // ulozenie zostatku penazi
 			PlayerPrefs.SetInt ("weapon" + typeOfWeapon, 0); // ulozenie vlastnictva zbrane
-			
 			gameObject = GameObject.Find ("SellBtn" + typeOfWeapon);
 			gameObject.GetComponent<Button> ().interactable = false;
 			gameObject = GameObject.Find("BuyBtn"+ typeOfWeapon);
@@ -58,7 +57,7 @@ public class ShopScript : MonoBehaviour {
 			PlayerPrefs.SetInt ("money", ScoreScript.GetMoney ()); // ulozenie zostatku penazi
 
 
-			PlayerPrefs.SetInt ("pistolammo", PlayerPrefs.GetInt ("pistolammo", 5) + 5); // ziska pocet nabojov a ulozi + 5 
+			PlayerPrefs.SetInt ("ammo" + typeOfWeapon, PlayerPrefs.GetInt ("ammo" + typeOfWeapon, 5) + 5); // ziska pocet nabojov a ulozi + 5 
 			
 			/*gameObject = GameObject.Find("BuyBtn"+ typeOfWeapon);
 			gameObject.GetComponent<Button> ().interactable = false;

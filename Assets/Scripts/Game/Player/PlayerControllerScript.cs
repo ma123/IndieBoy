@@ -33,6 +33,7 @@ public class PlayerControllerScript : MonoBehaviour {
 
 	void FixedUpdate () {
 		grounded = Physics2D.OverlapCircle (groundCheck.position, groundRadius, whatIsGround);
+		print (grounded);
 		//anim.SetBool ("Ground", grounded);
 
 		if (grounded) {

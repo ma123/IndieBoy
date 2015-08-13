@@ -10,9 +10,9 @@ public class EndLevelScript : MonoBehaviour {
 	public void EndLevelReact () {
 		print ("end level");
 		PlayerPrefs.SetInt ("money", ScoreScript.GetMoney());
-		PlayerPrefs.SetInt ("pistolammo", AmmoScript.GetPistolAmmo());
-		PlayerPrefs.SetInt ("automachineammmo", AmmoScript.GetAutomachineAmmo());
-		PlayerPrefs.SetInt ("bazookaammo", AmmoScript.GetBazookaAmmo());
+		PlayerPrefs.SetInt ("ammo0", AmmoScript.GetPistolAmmo());
+		PlayerPrefs.SetInt ("ammo1", AmmoScript.GetAutomachineAmmo());
+		PlayerPrefs.SetInt ("ammo2", AmmoScript.GetBazookaAmmo());
 
 
 		openedLevel = PlayerPrefs.GetInt ("openedLevel", 1);

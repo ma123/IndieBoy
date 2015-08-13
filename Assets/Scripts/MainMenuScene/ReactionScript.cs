@@ -4,6 +4,16 @@ using System.Collections;
 
 public class ReactionScript : MonoBehaviour {
 	public GameObject loadingLevelPanel;
+	private int numberOfWeapons = 3;
+
+	void Start() {
+		if(PlayerPrefs.GetInt ("openedLevel", 1) == 1) {
+			PlayerPrefs.SetInt("weapon" + 0, 1);
+			for(int i= 1; i < numberOfWeapons; i++) {
+				PlayerPrefs.SetInt("weapon" + i, 0);
+			}
+		}
+	}
 
 	public void ClickedLevelSelector() {
 		print ("clicked load LevelSelector");

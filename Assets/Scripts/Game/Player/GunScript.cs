@@ -31,11 +31,11 @@ public class GunScript : MonoBehaviour {
 			}
 		} 
 
-		SetActiveWeapons (currentGun);
+		SetActiveWeapons (weaponsList[0]);
+
 		if(weaponsList.Count > 1) {
 			nextChangeGun = weaponsList [currentGun + 1];
 		}
-	    
 	}
 
 	// zmeni zbran za nasledujucu 
@@ -57,6 +57,7 @@ public class GunScript : MonoBehaviour {
 	// zobrazi aktualnu zbran
 	private void SetActiveWeapons(int weapon) {
 		foreach(int w in weaponsList) {
+			print ("weapon " + w);
 			if(w == weapon) {
 				gunsObject[w].SetActive(true);
 				currentGun = weapon;

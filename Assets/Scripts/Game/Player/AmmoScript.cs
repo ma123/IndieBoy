@@ -11,9 +11,9 @@ public class AmmoScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		pistolAmmo = PlayerPrefs.GetInt ("pistolammo", 5);
-		automachineAmmo = PlayerPrefs.GetInt ("automachineammo", 0);
-		bazookaAmmo = PlayerPrefs.GetInt ("bazookaammo", 0);
+		pistolAmmo = PlayerPrefs.GetInt ("ammo0", 5);
+		automachineAmmo = PlayerPrefs.GetInt ("ammo1", 0);
+		bazookaAmmo = PlayerPrefs.GetInt ("ammo2", 0);
 
 		ammoText = gameObject.GetComponent<Text>();
 		actualAmmo = pistolAmmo; // nastavenie ako default pistol
